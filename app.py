@@ -179,11 +179,13 @@ section[data-testid="stSidebar"] {
 # -------------------------------------------------------------
 @st.cache_data
 def load_cleaned_data():
-    df = pd.read_csv("data/customer_churn_cleaned.csv")
+    csv_path = os.path.join(os.path.dirname(__file__), "data", "customer_churn_cleaned.csv")
+    df = pd.read_csv(csv_path)
     return df
 
 def run_query(query):
-    conn = sqlite3.connect("data/churn.db")
+    db_path = os.path.join(os.path.dirname(__file__), "data", "churn.db")
+    conn = sqlite3.connect(db_path)
     try:
         result_df = pd.read_sql_query(query, conn)
         return result_df
@@ -201,9 +203,10 @@ except Exception as e:
 
 # Load ML Model
 model_pipeline = None
-if os.path.exists("model/churn_prediction.pkl"):
+model_path = os.path.join(os.path.dirname(__file__), "model", "churn_prediction.pkl")
+if os.path.exists(model_path):
     try:
-        with open("model/churn_prediction.pkl", "rb") as f:
+        with open(model_path, "rb") as f:
             model_pipeline = pickle.load(f)
     except Exception as e:
         st.warning(f"Error loading ML model: {e}")
