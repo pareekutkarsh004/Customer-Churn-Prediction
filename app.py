@@ -239,6 +239,18 @@ st.sidebar.info(
     "and offers recommendations using SQL Analytics & Machine Learning (Random Forest)."
 )
 
+# Temporary debug tools
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 🛠️ Debug Diagnostics")
+st.sidebar.write("CWD:", os.getcwd())
+st.sidebar.write("Dirname:", os.path.dirname(__file__))
+st.sidebar.write("Model path:", model_path)
+st.sidebar.write("Model file exists:", os.path.exists(model_path))
+try:
+    st.sidebar.write("Model dir contents:", os.listdir(os.path.join(os.path.dirname(__file__), "model")))
+except Exception as ex:
+    st.sidebar.write("Model dir error:", str(ex))
+
 # -------------------------------------------------------------
 # PAGE 1: EXECUTIVE DASHBOARD
 # -------------------------------------------------------------
