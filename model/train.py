@@ -12,9 +12,12 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, classification_report
 
 def run_ml_pipeline():
-    data_path = "data/customer_churn_cleaned.csv"
-    model_dir = "model"
-    model_output_path = os.path.join(model_dir, "churn_prediction.pkl")
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    data_path = os.path.abspath(os.path.join(base_dir, "..", "data", "customer_churn_cleaned.csv"))
+    model_output_path = os.path.join(base_dir, "churn_prediction.pkl")
+    
+    # Ensure model folder exists
+    os.makedirs(base_dir, exist_ok=True)
     
     print("Loading cleaned dataset...")
     df = pd.read_csv(data_path)

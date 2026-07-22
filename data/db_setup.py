@@ -4,9 +4,10 @@ import sqlite3
 import os
 
 def clean_and_setup_db():
-    raw_path = "data/customer_churn.csv"
-    cleaned_path = "data/customer_churn_cleaned.csv"
-    db_path = "data/churn.db"
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    raw_path = os.path.join(base_dir, "customer_churn.csv")
+    cleaned_path = os.path.join(base_dir, "customer_churn_cleaned.csv")
+    db_path = os.path.join(base_dir, "churn.db")
     
     print("Loading raw customer churn dataset...")
     df = pd.read_csv(raw_path)
