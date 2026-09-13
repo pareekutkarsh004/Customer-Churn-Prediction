@@ -1,5 +1,9 @@
 # Customer Churn Analysis & Prediction Dashboard
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://cusomer-churn-predictor.streamlit.app/)
+
+> 🚀 **Live Interactive App:** [https://cusomer-churn-predictor.streamlit.app/](https://cusomer-churn-predictor.streamlit.app/)
+
 This repository contains a comprehensive, end-to-end data analysis and machine learning pipeline to understand, analyze, and predict customer churn in a subscription business (telecom provider).
 
 ## 📊 Business Problem & Objective
@@ -106,7 +110,7 @@ python3 model/train.py
 ```
 
 ### 4. Launch Streamlit Web Dashboard
-Launch the interactive dashboard, customer profile predictor, and SQL play console in your browser:
+You can access the live deployed app directly at **[cusomer-churn-predictor.streamlit.app](https://cusomer-churn-predictor.streamlit.app/)**, or launch it locally:
 ```bash
 streamlit run app.py
 ```
